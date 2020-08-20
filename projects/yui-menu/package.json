@@ -1,0 +1,38 @@
+{
+    "name": "@discordelia/menu",
+    "version": "0.0.1",
+    "description": "A simple menubar component for Angular v9+.",
+    "author": {
+        "name": "discordelia"
+    },
+    "keywords": [
+        "angular",
+        "angular2",
+        "angular9",
+        "angular 9",
+        "angular 10",
+        "menu",
+        "menubar",
+        "menu bar",
+        "ng-menu",
+        "ngx-menu",
+        "yui-menu",
+        "ng-menubar",
+        "ngx-menubar",
+        "yui-menubar",
+        "discordelia"
+    ],
+    "license": "MIT",
+    "repository": {
+        "url": "https://github.com/discordelia/yui-menu"
+    },
+    "peerDependencies": {
+        "@angular/common": "^9.1.12",
+        "@angular/core": "^9.1.12",
+        "@angular/cdk": "^10.1.3",
+        "@discordelia/contextmenu": "^0.3.3"
+    },
+    "dependencies": {
+        "tslib": "^1.10.0"
+    }
+}

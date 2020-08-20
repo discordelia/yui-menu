@@ -1,0 +1,13 @@
+<div class="wrapper">
+    <ul class="menubar-list" *ngIf="menuList?.length > 0">
+        <li *ngFor="let item of menuList" #listElement (mouseenter)="onMenuMouseEnter($event, item)"
+            (mouseleave)="onMenuMouseLeave($event, item)" (click)="onMenuClick($event, item)"
+            [attr.data-uid]="item.uid"
+            [ngClass]="{'active': item.focused}">
+            <span>{{item.text}}</span>
+            <yui-contextmenu [target]="listElement" [menuItems]="item.menuItems"
+                             [precise]="false" trigger="click" (menuOpen)="onMenuOpen($event)"
+                             (menuClose)="onMenuClose($event)" (menuChange)="onMenuChange($event)"></yui-contextmenu>
+        </li>
+    </ul>
+</div>

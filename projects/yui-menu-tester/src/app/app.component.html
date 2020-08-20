@@ -1,0 +1,42 @@
+<yui-menu-bar>
+    <yui-menu text="File">
+        <yui-menu-item text="New" [textTemplate]="newTemplate" subtext="Ctrl+N"></yui-menu-item>
+        <yui-menu-item text="Open Recent">
+            <yui-menu-item text="yui-menu"></yui-menu-item>
+            <yui-menu-item text="yui-contextmenu"></yui-menu-item>
+        </yui-menu-item>
+        <yui-menu-item text="Save As" subtext="Ctrl+S"></yui-menu-item>
+    </yui-menu>
+    <yui-menu text="Edit">
+        <yui-menu-item text="Cut" (select)="testMenuItem()" subtext="Ctrl+X"></yui-menu-item>
+        <yui-menu-item text="Copy" subtext="Ctrl+C"></yui-menu-item>
+        <yui-menu-item text="Paste" subtext="Ctrl+V"></yui-menu-item>
+        <yui-menu-item [divider]="true"></yui-menu-item>
+        <yui-menu-item text="Undo Typing" subtext="Ctrl+Z"></yui-menu-item>
+    </yui-menu>
+    <yui-menu text="View">
+        <yui-menu-item text="Tool Windows">
+            <yui-menu-item text="Commit"></yui-menu-item>
+            <yui-menu-item text="Project"></yui-menu-item>
+        </yui-menu-item>
+        <yui-menu-item text="Appearance">
+            <yui-menu-item text="Enter Presentation Mode"></yui-menu-item>
+            <yui-menu-item text="Enter Distraction Free Mode"></yui-menu-item>
+        </yui-menu-item>
+    </yui-menu>
+    <yui-menu text="Navigate">
+        <yui-menu-item text="Back"></yui-menu-item>
+        <yui-menu-item text="Forward" [disabled]="true"></yui-menu-item>
+        <yui-menu-item [divider]="true"></yui-menu-item>
+        <yui-menu-item text="Search Everywhere"></yui-menu-item>
+        <yui-menu-item [divider]="true"></yui-menu-item>
+        <yui-menu-item text="Class"></yui-menu-item>
+        <yui-menu-item text="File"></yui-menu-item>
+        <yui-menu-item text="Symbol"></yui-menu-item>
+        <yui-menu-item text="Line/Column"></yui-menu-item>
+    </yui-menu>
+</yui-menu-bar>
+
+<ng-template #newTemplate let-menuItem>
+    <span style="color: deeppink;">{{menuItem.text}}</span>
+</ng-template>

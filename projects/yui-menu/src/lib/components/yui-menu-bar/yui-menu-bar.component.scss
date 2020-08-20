@@ -1,0 +1,41 @@
+div.wrapper {
+    width: 100%;
+    height: 25px;
+    &, & * {
+        user-select: none;
+        box-sizing: border-box;
+    }
+}
+
+@mixin activeMenu() {
+    background: #fdfdfd;
+    border-right: 1px solid #d1d1d1;
+}
+
+ul.menubar-list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    background: #f8f8f8;
+    border-bottom: 1px solid #d1d1d1;
+    & > li {
+        height: 100%;
+        padding: 0 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 600;
+        &:hover,
+        &.active {
+            @include activeMenu();
+            &:not(:first-child) {
+                border-left: 1px solid #d1d1d1;
+            }
+        }
+    }
+}
+
+
