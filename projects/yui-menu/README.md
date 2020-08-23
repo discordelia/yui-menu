@@ -17,7 +17,7 @@ _Documentation is work in progress._
 * Install the following packages:
     
 ```
-npm i @angular/cdk @discordelia/popup @discordelia/contextmenu @discordelia/menu
+npm i @angular/cdk uuid @discordelia/popup @discordelia/contextmenu @discordelia/menu
 ```
 
 * Add the following line to your global stylesheet file (styles.scss)
@@ -26,7 +26,7 @@ npm i @angular/cdk @discordelia/popup @discordelia/contextmenu @discordelia/menu
 @import "~@angular/cdk/overlay-prebuilt.css";
 ```
 
-* Import **YuiMenuModule** in your app.module.ts file (or another module where you need it.)
+* Import **MenuModule** in your app.module.ts file (or another module where you need it.)
 
 # Usage
 
@@ -73,14 +73,29 @@ npm i @angular/cdk @discordelia/popup @discordelia/contextmenu @discordelia/menu
 </yui-menu-bar>
 ```
 
+**yui-menu-bar** accepts the following inputs.
+
+```
+menuClass: You can pass a string of css classes to help you style the menu.
+```
+
+
 **yui-menu** accepts the following inputs.
 
 ```
 text: Menu text
+menuClass: You can pass a string of css classes to help you style the menu. Overrides the one from yui-menu-bar.
 ```
 
 * Inside yui-menu tag, you can define multiple yui-menu-item components.
 * Inside yui-menu-item tag, you can define multiple yui-menu-item components for a submenu.
+* If, for example, you passed **'export-menu'** as menuClass input, you can then use the following code to help you style the menu.
+
+```scss
+yui-contextmenu-content.export-menu {
+    /* Your style rules */
+}
+```
 
 **yui-menu-item** accepts the following inputs and outputs. (Same with yui-contextmenu from @discordelia/contextmenu package.)
 

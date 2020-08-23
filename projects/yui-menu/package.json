@@ -1,6 +1,6 @@
 {
     "name": "@discordelia/menu",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "A simple menubar component for Angular v9+.",
     "author": {
         "name": "discordelia"
@@ -33,6 +33,6 @@
         "@discordelia/contextmenu": "^0.3.3"
     },
     "dependencies": {
-        "tslib": "^1.10.0"
+        "tslib": "^2.0.0"
     }
 }

@@ -9,14 +9,25 @@
     </yui-menu>
     <yui-menu text="Edit">
         <yui-menu-item text="Cut" (select)="testMenuItem()" subtext="Ctrl+X"></yui-menu-item>
-        <yui-menu-item text="Copy" subtext="Ctrl+C"></yui-menu-item>
+        <yui-menu-item text="Copy" subtext="Ctrl+C" [disabled]="disabledTest"></yui-menu-item>
         <yui-menu-item text="Paste" subtext="Ctrl+V"></yui-menu-item>
         <yui-menu-item [divider]="true"></yui-menu-item>
         <yui-menu-item text="Undo Typing" subtext="Ctrl+Z"></yui-menu-item>
+        <yui-menu-item text="Find Usages">
+            <yui-menu-item text="Find Usages"></yui-menu-item>
+            <yui-menu-item text="Show Usages"></yui-menu-item>
+            <yui-menu-item [divider]="true"></yui-menu-item>
+            <yui-menu-item text="Recent Find Usages">
+                <yui-menu-item text="Property 'x'"></yui-menu-item>
+                <yui-menu-item text="Method 'testMethod()'"></yui-menu-item>
+            </yui-menu-item>
+        </yui-menu-item>
     </yui-menu>
-    <yui-menu text="View">
+    <yui-menu text="View" [disabled]="disabledTest">
         <yui-menu-item text="Tool Windows">
-            <yui-menu-item text="Commit"></yui-menu-item>
+            <yui-menu-item text="Commit">
+                <
+            </yui-menu-item>
             <yui-menu-item text="Project"></yui-menu-item>
         </yui-menu-item>
         <yui-menu-item text="Appearance">
@@ -24,7 +35,7 @@
             <yui-menu-item text="Enter Distraction Free Mode"></yui-menu-item>
         </yui-menu-item>
     </yui-menu>
-    <yui-menu text="Navigate">
+    <yui-menu text="Navigate" [textTemplate]="navigateTemplate" [menuClass]="'testClass'">
         <yui-menu-item text="Back"></yui-menu-item>
         <yui-menu-item text="Forward" [disabled]="true"></yui-menu-item>
         <yui-menu-item [divider]="true"></yui-menu-item>
@@ -39,4 +50,8 @@
 
 <ng-template #newTemplate let-menuItem>
     <span style="color: deeppink;">{{menuItem.text}}</span>
+</ng-template>
+
+<ng-template #navigateTemplate>
+    <span style="color: teal;">Navigate</span>
 </ng-template>
