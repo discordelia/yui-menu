@@ -3,8 +3,8 @@ import {NgModule} from "@angular/core";
 
 import {AppRoutingModule} from "./app-routing.module";
 import {AppComponent} from "./app.component";
-import {YuiMenuModule} from "yui-menu";
-import {YuiContextMenuModule} from "@discordelia/contextmenu";
+import {MenuModule} from "yui-menu";
+import {ContextMenuModule} from "@discordelia/contextmenu";
 
 @NgModule({
     declarations: [
@@ -13,8 +13,8 @@ import {YuiContextMenuModule} from "@discordelia/contextmenu";
     imports: [
         BrowserModule,
         AppRoutingModule,
-        YuiMenuModule,
-        YuiContextMenuModule
+        MenuModule,
+        ContextMenuModule
     ],
     providers: [],
     bootstrap: [AppComponent]

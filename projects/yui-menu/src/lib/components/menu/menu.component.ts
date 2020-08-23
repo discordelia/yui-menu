@@ -1,5 +1,5 @@
 import {AfterContentInit, Component, ContentChildren, Input, OnDestroy, OnInit, QueryList, TemplateRef} from "@angular/core";
-import {YuiMenuItemComponent} from "@discordelia/contextmenu";
+import {MenuItemComponent} from "@discordelia/contextmenu";
 import {IMenuItem} from "@discordelia/contextmenu";
 import {Subscription} from "rxjs";
 import {v4} from "uuid";
@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit, AfterContentInit, Highlightable, O
     public readonly uid: string = v4();
     private subMenuItemsSubscription$: Subscription;
     public focused: boolean = false;
-    @ContentChildren(YuiMenuItemComponent) subMenuItems: QueryList<YuiMenuItemComponent>;
+    @ContentChildren(MenuItemComponent) subMenuItems: QueryList<MenuItemComponent>;
     @Input() disabled: boolean = false;
     @Input() menuClass: string;
     @Input() menuItems: IMenuItem[] = [];
