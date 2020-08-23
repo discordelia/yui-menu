@@ -1,6 +1,6 @@
 {
     "name": "@discordelia/menu",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "A simple menubar component for Angular v9+.",
     "author": {
         "name": "discordelia"
