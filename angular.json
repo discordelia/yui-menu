@@ -67,6 +67,11 @@
                         "main": "projects/yui-menu-tester/src/main.ts",
                         "polyfills": "projects/yui-menu-tester/src/polyfills.ts",
                         "tsConfig": "projects/yui-menu-tester/tsconfig.app.json",
+                        "sourceMap": {
+                            "scripts": true,
+                            "vendor": true,
+                            "styles": true
+                        },
                         "aot": true,
                         "assets": [
                             "projects/yui-menu-tester/src/favicon.ico",
@@ -87,8 +92,7 @@
                             ],
                             "optimization": true,
                             "outputHashing": "all",
-                            "sourceMap": true,
-                            "vendorSourceMap": true,
+                            "sourceMap": false,
                             "extractCss": true,
                             "namedChunks": false,
                             "extractLicenses": true,

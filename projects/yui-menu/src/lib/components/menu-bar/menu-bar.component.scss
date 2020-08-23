@@ -22,18 +22,24 @@ ul.menubar-list {
     border-bottom: 1px solid #d1d1d1;
     & > li {
         height: 100%;
-        padding: 0 5px;
+        padding: 0 10px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 13px;
         font-weight: 600;
-        &:hover,
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
+        &:hover:not(.disabled),
         &.active {
             @include activeMenu();
             &:not(:first-child) {
                 border-left: 1px solid #d1d1d1;
             }
+        }
+        &.disabled {
+            color: lightgray;
+            pointer-events: none;
         }
     }
 }

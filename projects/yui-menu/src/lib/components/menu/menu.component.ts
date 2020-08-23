@@ -1,4 +1,4 @@
-import {AfterContentInit, Component, ContentChildren, Input, OnInit, QueryList} from "@angular/core";
+import {AfterContentInit, Component, ContentChildren, Input, OnDestroy, OnInit, QueryList, TemplateRef} from "@angular/core";
 import {YuiMenuItemComponent} from "@discordelia/contextmenu";
 import {IMenuItem} from "@discordelia/contextmenu";
 import {Subscription} from "rxjs";
@@ -7,24 +7,30 @@ import {Highlightable} from "@angular/cdk/a11y";
 
 @Component({
     selector: "yui-menu",
-    templateUrl: "./yui-menu.component.html",
-    styleUrls: ["./yui-menu.component.scss"]
+    template: "",
+    styles: []
 })
-export class YuiMenuComponent implements OnInit, AfterContentInit, Highlightable {
+export class MenuComponent implements OnInit, AfterContentInit, Highlightable, OnDestroy {
 
-    public readonly uid: string = v4()
+    public readonly uid: string = v4();
     private subMenuItemsSubscription$: Subscription;
-    public disabled: boolean = false;
     public focused: boolean = false;
     @ContentChildren(YuiMenuItemComponent) subMenuItems: QueryList<YuiMenuItemComponent>;
+    @Input() disabled: boolean = false;
+    @Input() menuClass: string;
     @Input() menuItems: IMenuItem[] = [];
     @Input() target: HTMLElement;
     @Input() text: string;
+    @Input() textTemplate: TemplateRef<any>;
 
     constructor() {
     }
 
     ngOnInit(): void {
+    }
+
+    ngOnDestroy() {
+        this.subMenuItemsSubscription$?.unsubscribe();
     }
 
     ngAfterContentInit() {

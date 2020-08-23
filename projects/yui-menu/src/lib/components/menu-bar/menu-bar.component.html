@@ -3,9 +3,10 @@
         <li *ngFor="let item of menuList" #listElement (mouseenter)="onMenuMouseEnter($event, item)"
             (mouseleave)="onMenuMouseLeave($event, item)" (click)="onMenuClick($event, item)"
             [attr.data-uid]="item.uid"
-            [ngClass]="{'active': item.focused}">
-            <span>{{item.text}}</span>
-            <yui-contextmenu [target]="listElement" [menuItems]="item.menuItems"
+            [ngClass]="{'active': item.focused && !item.disabled, 'disabled': item.disabled}">
+            <span *ngIf="!item.textTemplate">{{item.text}}</span>
+            <ng-container [ngTemplateOutlet]="item.textTemplate" *ngIf="!!item.textTemplate"></ng-container>
+            <yui-contextmenu [target]="listElement" [menuItems]="item.menuItems" [menuClass]="item.menuClass || menuClass"
                              [precise]="false" trigger="click" (menuOpen)="onMenuOpen($event)"
                              (menuClose)="onMenuClose($event)" (menuChange)="onMenuChange($event)"></yui-contextmenu>
         </li>
