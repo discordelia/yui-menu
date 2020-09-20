@@ -1,4 +1,4 @@
-<yui-menu-bar>
+<yui-menu-bar theme="dark">
     <yui-menu text="File">
         <yui-menu-item text="New" [textTemplate]="newTemplate" subtext="Ctrl+N"></yui-menu-item>
         <yui-menu-item text="Open Recent">
@@ -7,8 +7,8 @@
         </yui-menu-item>
         <yui-menu-item text="Save As" subtext="Ctrl+S"></yui-menu-item>
     </yui-menu>
-    <yui-menu text="Edit">
-        <yui-menu-item text="Cut" (select)="testMenuItem()" subtext="Ctrl+X"></yui-menu-item>
+    <yui-menu text="Edit" [menuClass]="'menu-custom'">
+        <yui-menu-item text="Cut" (menuSelect)="testMenuItem()" subtext="Ctrl+X"></yui-menu-item>
         <yui-menu-item text="Copy" subtext="Ctrl+C" [disabled]="disabledTest"></yui-menu-item>
         <yui-menu-item text="Paste" subtext="Ctrl+V"></yui-menu-item>
         <yui-menu-item [divider]="true"></yui-menu-item>
@@ -25,9 +25,7 @@
     </yui-menu>
     <yui-menu text="View" [disabled]="disabledTest">
         <yui-menu-item text="Tool Windows">
-            <yui-menu-item text="Commit">
-                <
-            </yui-menu-item>
+            <yui-menu-item text="Commit"></yui-menu-item>
             <yui-menu-item text="Project"></yui-menu-item>
         </yui-menu-item>
         <yui-menu-item text="Appearance">

@@ -1,3 +1,15 @@
+$menu-light-background: #e8e8e8;
+$menu-light-border: 1px solid #d1d1d1;
+$menu-light-hover-bg: #f2f2f4;
+$menu-light-disabled: #a7a7af;
+$menu-light-text: #383848;
+
+$menu-dark-background: #383838;
+$menu-dark-border: 1px solid #585858;
+$menu-dark-hover-bg: #47474f;
+$menu-dark-disabled: #6a6a70;
+$menu-dark-text: #c0c0c6;
+
 div.wrapper {
     width: 100%;
     height: 25px;
@@ -7,19 +19,12 @@ div.wrapper {
     }
 }
 
-@mixin activeMenu() {
-    background: #fdfdfd;
-    border-right: 1px solid #d1d1d1;
-}
-
 ul.menubar-list {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     width: 100%;
     height: 100%;
-    background: #f8f8f8;
-    border-bottom: 1px solid #d1d1d1;
     & > li {
         height: 100%;
         padding: 0 10px;
@@ -30,18 +35,49 @@ ul.menubar-list {
         font-weight: 600;
         border-left: 1px solid transparent;
         border-right: 1px solid transparent;
-        &:hover:not(.disabled),
-        &.active {
-            @include activeMenu();
-            &:not(:first-child) {
-                border-left: 1px solid #d1d1d1;
-            }
-        }
         &.disabled {
-            color: lightgray;
             pointer-events: none;
         }
     }
 }
 
 
+:host-context(.theme-light) {
+    ul.menubar-list {
+        background: $menu-light-background;
+        border-bottom: $menu-light-border;
+        & > li {
+            color: $menu-light-text;
+            &:hover:not(.disabled),
+            &.active {
+                background: $menu-light-hover-bg;
+                &:not(:first-child) {
+                    border-left: $menu-light-border;
+                }
+            }
+            &.disabled {
+                color: $menu-light-disabled;
+            }
+        }
+    }
+}
+
+:host-context(.theme-dark) {
+    ul.menubar-list {
+        background: $menu-dark-background;
+        border-bottom: $menu-dark-border;
+        & > li {
+            color: $menu-dark-text;
+            &:hover:not(.disabled),
+            &.active {
+                background: $menu-dark-hover-bg;
+                &:not(:first-child) {
+                    border-left: $menu-dark-border;
+                }
+            }
+            &.disabled {
+                color: $menu-dark-disabled;
+            }
+        }
+    }
+}

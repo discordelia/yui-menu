@@ -1,7 +1,19 @@
-import {AfterContentInit, AfterViewInit, Component, ContentChildren, HostListener, Input, OnInit, QueryList} from "@angular/core";
+import {
+    AfterContentInit,
+    AfterViewInit,
+    Component,
+    ContentChildren,
+    ElementRef,
+    HostBinding,
+    HostListener,
+    Input,
+    OnInit,
+    QueryList
+} from "@angular/core";
 import {MenuComponent} from "../menu/menu.component";
-import {IContextMenuData, IMenuChangeEvent, IMenuCloseEvent, IMenuItem, IMenuOpenEvent} from "@discordelia/contextmenu";
+import {IContextMenuData, IMenuChangeEvent, IMenuCloseEvent, IMenuOpenEvent} from "@discordelia/contextmenu";
 import {ActiveDescendantKeyManager} from "@angular/cdk/a11y";
+import {MenuTheme, MenuThemeClass} from "../../interfaces/MenuTheme";
 
 @Component({
     selector: "yui-menu-bar",
@@ -11,14 +23,31 @@ import {ActiveDescendantKeyManager} from "@angular/cdk/a11y";
 export class MenuBarComponent implements OnInit, AfterContentInit, AfterViewInit {
 
     private keyManager: ActiveDescendantKeyManager<MenuComponent>;
+    private menuThemeClass: MenuThemeClass = "theme-light";
     public currentMenu: MenuComponent;
     public menuChangeData: IMenuChangeEvent;
+    public menuTheme: MenuTheme = "light";
     public previousMenuData: IContextMenuData;
     public previousMenuElement: HTMLLIElement;
     @ContentChildren(MenuComponent) menuList: QueryList<MenuComponent>;
     @Input() menuClass: string = "";
 
-    constructor() {
+    @Input() set theme(theme: MenuTheme) {
+        this.menuTheme = theme;
+        this.menuThemeClass = theme === "dark" ? "theme-dark" : "theme-light";
+    }
+
+    @HostBinding("class.theme-light") get lt() {
+        return this.menuThemeClass === "theme-light";
+    }
+
+    @HostBinding("class.theme-dark") get dt() {
+        return this.menuThemeClass === "theme-dark";
+    }
+
+    constructor(
+        private readonly hostElementRef: ElementRef
+    ) {
     }
 
     ngOnInit(): void {

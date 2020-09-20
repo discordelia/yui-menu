@@ -6,7 +6,7 @@
             [ngClass]="{'active': item.focused && !item.disabled, 'disabled': item.disabled}">
             <span *ngIf="!item.textTemplate">{{item.text}}</span>
             <ng-container [ngTemplateOutlet]="item.textTemplate" *ngIf="!!item.textTemplate"></ng-container>
-            <yui-contextmenu [target]="listElement" [menuItems]="item.menuItems" [menuClass]="item.menuClass || menuClass"
+            <yui-contextmenu [target]="listElement" [menuItems]="item.menuItems" [theme]="menuTheme" [menuClass]="menuClass"
                              [precise]="false" trigger="click" (menuOpen)="onMenuOpen($event)"
                              (menuClose)="onMenuClose($event)" (menuChange)="onMenuChange($event)"></yui-contextmenu>
         </li>

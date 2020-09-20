@@ -75,16 +75,17 @@ npm i @angular/cdk uuid @discordelia/popup @discordelia/contextmenu @discordelia
 
 **yui-menu-bar** accepts the following inputs.
 
-```
-menuClass: You can pass a string of css classes to help you style the menu.
+```typescript
+menuClass : You can pass a string of css classes to help you style the menu.
+theme     : You can pass 'light' or 'dark' to set the theme.
 ```
 
 
 **yui-menu** accepts the following inputs.
 
-```
-text: Menu text
-menuClass: You can pass a string of css classes to help you style the menu. Overrides the one from yui-menu-bar.
+```typescript
+text      : Menu text
+menuClass : You can pass a string of css classes to help you style the menu. Overrides the one from yui-menu-bar.
 ```
 
 * Inside yui-menu tag, you can define multiple yui-menu-item components.
@@ -100,18 +101,18 @@ yui-contextmenu-content.export-menu {
 **yui-menu-item** accepts the following inputs and outputs. (Same with yui-contextmenu from @discordelia/contextmenu package.)
 
 ```typescript
-disabled: boolean                   // Disable a menu item.
-divider: boolean                    // Set a menu item as divider. When set to true, all other options are ignored.
-event: MouseEvent                   // Set the triggering event. Only used when the target changes dynamically.
-icon: string;                       // Icon class for menu item. For example, you can pass a font icon class such as 'fa fa-plus'. Ignored when iconTemplate option is set.
-iconTemplate: TemplateRef<any>;     // Pass a template reference to show as menu item icon.
-image: string;                      // Image url for menu item icon. Ignored when iconTemplate option is set.
-select: EventEmitter<IMenuItem>;    // Called when a menu item is selected. 
-text: string;                       // Menu item text. Ignored when textTemplate option is set.
-textTemplate: TemplateRef<any>;     // Pass a template reference to show as menu item text.
-toggleable: boolean;                // Pass true if you want to make the menu item toggleable.
-toggled: boolean;                   // Set toggle status of menu item. This is a two-way binding. [(toggled)]
-visible: boolean;                   // Set false to hide a menu item.
+disabled: boolean                    // Disable a menu item.
+divider: boolean                     // Set a menu item as divider. When set to true, all other options are ignored.
+event: MouseEvent                    // Set the triggering event. Only used when the target changes dynamically.
+icon: string;                        // Icon class for menu item. For example, you can pass a font icon class such as 'fa fa-plus'. Ignored when iconTemplate option is set.
+iconTemplate: TemplateRef<any>;      // Pass a template reference to show as menu item icon.
+image: string;                       // Image url for menu item icon. Ignored when iconTemplate option is set.
+menuSelect: EventEmitter<IMenuItem>; // Called when a menu item is selected. 
+text: string;                        // Menu item text. Ignored when textTemplate option is set.
+textTemplate: TemplateRef<any>;      // Pass a template reference to show as menu item text.
+toggleable: boolean;                 // Pass true if you want to make the menu item toggleable.
+toggled: boolean;                    // Set toggle status of menu item. This is a two-way binding. [(toggled)]
+visible: boolean;                    // Set false to hide a menu item.
 ```
 
 # License
