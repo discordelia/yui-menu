@@ -115,6 +115,9 @@ toggled: boolean;                    // Set toggle status of menu item. This is 
 visible: boolean;                    // Set false to hide a menu item.
 ```
 
+# Known Issues
+**menuClass** input does not work properly.
+
 # License
 
 MIT
